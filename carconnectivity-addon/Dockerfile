@@ -22,7 +22,7 @@ COPY rootfs /
 WORKDIR /tmp/
 
 RUN echo "ADDON_VERSION=v${BUILD_VERSION}" >> versions.txt && \
-    apk add --no-cache --update musl curl nginx py3-pip build-base libffi-dev && \
+    apk add --no-cache --update musl curl nginx py3-pip build-base libffi-dev git && \
     python3 -m venv /opt/venv && \
     /opt/venv/bin/pip install --upgrade pip && \
     /opt/venv/bin/pip install --no-cache \
@@ -36,9 +36,10 @@ RUN echo "ADDON_VERSION=v${BUILD_VERSION}" >> versions.txt && \
         carconnectivity-plugin-webui==${WEBUI_VERSION#v} \
         carconnectivity-plugin-mqtt_homeassistant==${MQTTHA_VERSION#v} && \
     /opt/venv/bin/pip install --no-cache --no-deps \
-        carconnectivity-connector-audi==${AUDI_VERSION#v} \
-        carconnectivity-connector-volkswagen_na==${VWNA_VERSION#v} && \
-    apk del build-base libffi-dev && \
+        carconnectivity-connector-audi==${AUDI_VERSION#v} && \
+    /opt/venv/bin/pip install --no-cache --no-deps \
+        "carconnectivity-connector-volkswagen_na @ git+https://github.com/danielsza/CarConnectivity-connector-volkswagen-na.git@fix/spin-pr71" && \
+    apk del build-base libffi-dev git && \
     echo "CARCONNECTIVITY_VERSION=${CC_VERSION}" >> versions.txt && \
     echo "AUDI_VERSION=${AUDI_VERSION}" >> versions.txt && \
     echo "SEAT_VERSION=${SEAT_VERSION}" >> versions.txt && \

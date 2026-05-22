@@ -1,5 +1,5 @@
 {
-  "name": "Home Assistant Add-on: CarConnectivity",
-  "url": "https://github.com/Pulpyyyy/carconnectivity-addon",
-  "maintainer": "Pulpyyyy"
+  "name": "CarConnectivity Add-on (SPIN Fix)",
+  "url": "https://github.com/danielsza/carconnectivity-addon",
+  "maintainer": "danielsza"
 }
