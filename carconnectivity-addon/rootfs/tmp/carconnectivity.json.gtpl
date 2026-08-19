@@ -11,6 +11,14 @@
                     {{- end }}
                     {{- if eq .brand1.type "volkswagen_na" }}
                     "country": "us",
+                    {{- if .token_relay.enabled }}
+                    "token_source": "mqtt",
+                    "mqtt_host": "{{ .token_relay.mqtt_host }}",
+                    "mqtt_port": {{ .token_relay.mqtt_port }},
+                    "mqtt_user": "{{ .token_relay.mqtt_user }}",
+                    "mqtt_pass": "{{ .token_relay.mqtt_pass }}",
+                    "mqtt_token_topic": "{{ .token_relay.mqtt_topic }}",
+                    {{- end }}
                     {{- end }}
                     "username": "{{ .brand1.username }}",
                     "password": "{{ .brand1.password }}",
@@ -31,6 +39,14 @@
                     {{- end }}
                     {{- if eq .brand2.type "volkswagen_na" }}
                     "country": "us",
+                    {{- if .token_relay.enabled }}
+                    "token_source": "mqtt",
+                    "mqtt_host": "{{ .token_relay.mqtt_host }}",
+                    "mqtt_port": {{ .token_relay.mqtt_port }},
+                    "mqtt_user": "{{ .token_relay.mqtt_user }}",
+                    "mqtt_pass": "{{ .token_relay.mqtt_pass }}",
+                    "mqtt_token_topic": "{{ .token_relay.mqtt_topic }}",
+                    {{- end }}
                     {{- end }}
                     "username": "{{ .brand2.username }}",
                     "password": "{{ .brand2.password }}",

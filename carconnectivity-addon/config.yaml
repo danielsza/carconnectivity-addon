@@ -1,5 +1,5 @@
 name: "CarConnectivity Add-on (SPIN Fix)"
-version: 0.6.26-spin-fix
+version: 0.6.27-mqtt-relay
 slug: "carconnectivity-addon-spin-fix"
 description: "CarConnectivity Add-on based on Till's project (https://github.com/tillsteinbach/CarConnectivity). May be unstable. MQTT required."
 panel_icon: "mdi:car-wireless"
@@ -47,6 +47,13 @@ options:
   logs:
     level: "info"
     api_level: "info"
+  token_relay:
+    enabled: false
+    mqtt_host: "core-mosquitto"
+    mqtt_port: 1883
+    mqtt_user: ""
+    mqtt_pass: ""
+    mqtt_topic: "vw/token_relay"
   expert: false
 schema:
   brand1:
@@ -84,5 +91,12 @@ schema:
   logs:
     level: list(info|warning|error|debug)
     api_level: list(info|warning|error|debug)
+  token_relay:
+    enabled: bool
+    mqtt_host: str?
+    mqtt_port: int?
+    mqtt_user: str?
+    mqtt_pass: password?
+    mqtt_topic: str?
   expert: bool
 
