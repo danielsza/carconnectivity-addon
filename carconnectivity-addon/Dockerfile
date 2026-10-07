@@ -38,7 +38,7 @@ RUN echo "ADDON_VERSION=v${BUILD_VERSION}" >> versions.txt && \
     /opt/venv/bin/pip install --no-cache --no-deps \
         carconnectivity-connector-audi==${AUDI_VERSION#v} && \
     /opt/venv/bin/pip install --no-cache --no-deps \
-        "carconnectivity-connector-volkswagen_na @ git+https://github.com/danielsza/CarConnectivity-connector-volkswagen-na.git@main" \
+        "carconnectivity-connector-volkswagen_na @ git+https://github.com/danielsza/CarConnectivity-connector-volkswagen-na.git@919ba77" \
         paho-mqtt PyJWT && \
     apk del build-base libffi-dev git && \
     echo "CARCONNECTIVITY_VERSION=${CC_VERSION}" >> versions.txt && \
